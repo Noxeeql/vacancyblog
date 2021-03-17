@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    protected $fillable = ['title', 'text', 'image'];
+    protected $fillable = ['title', 'text', 'image', 'date'];
     public $timestamps = false;
     use HasFactory;
 

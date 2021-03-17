@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class NewsController extends Controller
 {
@@ -18,10 +19,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::with('comments')->get();
+        $news = News::with('comments')
+            ->orderBy('date', 'desc')
+            ->get();
+
         $url = Storage::url('storage/image/news/origin/1.jpg');
-        // echo $url;
-        // dd($news);
+
         return view('main', [
             'image' => $url,
             'data' => $news->all(),
