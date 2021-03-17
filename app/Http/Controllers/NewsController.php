@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class NewsController extends Controller
 {
@@ -51,11 +52,12 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-
+        $date = Carbon::now();
         $post = News::create([
             'title' => $request->title,
             'text' => $request->text,
             'image' => $request->image,
+            'date' => $date,
         ]);
 
         if ($request->hasFile('image')) {
