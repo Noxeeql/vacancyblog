@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+// use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 
@@ -20,6 +21,7 @@ class NewsController extends Controller
      */
     public function index()
     {
+
         $news = News::with('comments')
             ->orderBy('date', 'desc')
             ->get();
