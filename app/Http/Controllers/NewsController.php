@@ -99,9 +99,10 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::findOrFail($id);
-        // $comment = User::find($id)->with('comments');
+        $comment = News::find($id)->with('comments');
         return view('post', [
-            'data' => $news->find($id)
+            'data' => $news->find($id),
+            'user' => $comment->find($id)
         ]);
     }
 

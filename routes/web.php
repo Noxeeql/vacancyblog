@@ -33,3 +33,5 @@ Route::get('/index', [\App\Http\Controllers\NewsController::class, 'index'])->na
 Route::get('news/{id}', [\App\Http\Controllers\NewsController::class, 'show'])->name('show');
 Route::get('/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('create');
 Route::post('/news/store', [\App\Http\Controllers\NewsController::class, 'store'])->name('news-store');
+
+Route::post('/comment/store', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment.add');
