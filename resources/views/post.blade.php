@@ -13,14 +13,14 @@
         </div>
 
         @foreach($data->comments as $comment)
-            <div class="alert alert-info position-static" align="center">
+            <div class="alert alert-info position-static col-lg-8 mx-auto" align="center">
 
                 {{-- <p>{{ $comment->user_id }}</p> --}}
                 <p>{{ $user->name }}</p>
                 <p>{{ $comment->text }}</p>
             </div>
         @endforeach
-        <h4>Add comment</h4>
+        <h4 class="text-center">Add comment</h4>
 
             {{-- <form>
              <div class="form-group row">
@@ -40,12 +40,12 @@
 
                     <form method="post" action="{{ route('comment.add') }}">
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group col-lg-8 mx-auto" >
                             <input type="text" name="text" class="form-control" />
                             <input type="hidden" name="news_id" value="{{ $data->id }}" />
                         </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-warning" value="Add Comment" />
+                        <div class="form-group row col-lg-1 mx-auto">
+                            <input type="submit" class="btn btn-success" value="Add Comment" align="enter" style="margin-top:10px;" />
                         </div>
 
 @include('layouts.footer')

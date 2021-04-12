@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/index', function () {
-    return view('main');
-})->name('main');
+// Route::get('/index', function () {
+//     return view('main');
+// })->name('main');
 
 Route::get('/news/post', function () {
     return view('post');
@@ -29,7 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/index', [\App\Http\Controllers\NewsController::class, 'index'])->name('index');
+Route::get('/', [\App\Http\Controllers\NewsController::class, 'index'])->name('index');
 Route::get('news/{id}', [\App\Http\Controllers\NewsController::class, 'show'])->name('show');
 Route::get('/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('create');
 Route::post('/news/store', [\App\Http\Controllers\NewsController::class, 'store'])->name('news-store');
