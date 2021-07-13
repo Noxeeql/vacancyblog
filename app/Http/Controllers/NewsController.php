@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
-// use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 
@@ -71,23 +70,7 @@ class NewsController extends Controller
         }
 
         return redirect()->route('index');
-        // $data = $request->all();
-
-        // $filename = $data['image']->getClientOriginalName();
-
-        // //Сохраняем оригинальную картинку
-        // $data['image']->move(Storage::path('/public/image/news/') . 'origin/', $filename);
-
-        // //Создаем миниатюру изображения и сохраняем ее
-        // $thumbnail = Image::make(Storage::path('/public/image/news/') . 'origin/' . $filename);
-        // $thumbnail->fit(300, 300);
-        // $thumbnail->save(Storage::path('/public/image/news/') . 'thumbnail/' . $filename);
-
-        // //Сохраняем новость в БД
-        // $data['image'] = $filename;
-        // News::create($data);
-
-        // return redirect()->route('index');
+        
     }
 
     /**
